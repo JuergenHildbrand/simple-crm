@@ -20,10 +20,6 @@ export class DialogAddUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onNoClick() {
-
-  }
-
   saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     console.log(this.user);

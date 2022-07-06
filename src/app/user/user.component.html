@@ -7,19 +7,13 @@
       <th>City</th>
     </tr>
 
-    <tr>
-      <td>abgsreb</td>
-      <td>ervsfg</td>
-      <td>sefbs</td>
-    </tr>
-
-    <tr>
-      <td>abgsreb</td>
-      <td>ervsfg</td>
-      <td>sefbs</td>
+    <tr *ngFor="let user of allUsers" routerLink="[user.customIdName]">
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{ user.eMail }}</td>
+      <td>{{ user.city }}</td>
     </tr>
   </table>
-  
+
 </mat-card>
 
 <button class="addUserBtn" (click)="openDialog()" mat-fab color="primary" matTooltip="Add user">
