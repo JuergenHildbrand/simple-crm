@@ -7,7 +7,7 @@
       <th>City</th>
     </tr>
 
-    <tr *ngFor="let user of allUsers" routerLink="[user.customIdName]">
+    <tr *ngFor="let user of allUsers" [routerLink]="'/user/' + user.customIdName">
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.eMail }}</td>
       <td>{{ user.city }}</td>
