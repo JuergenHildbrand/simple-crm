@@ -14,7 +14,7 @@ export class DialogEditAddressComponent implements OnInit {
   user: User;
   loading = false;
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) { }
 
   ngOnInit(): void {
   }
