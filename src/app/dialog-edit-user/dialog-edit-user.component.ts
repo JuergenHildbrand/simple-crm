@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
+import { User } from 'src/models/user.class';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 
 @Component({
@@ -8,11 +10,23 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
   styleUrls: ['./dialog-edit-user.component.scss']
 })
 export class DialogEditUserComponent implements OnInit {
-  user: import("/Users/jey/Desktop/VisualStudioCode/Angular/simple-crm/src/models/user.class").User;
+  
+  user: User;
+  userId: string;
+  loading = false;
+  birthDate: Date;
 
-  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) { }
+
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
+  }
+  
+  saveUser() {
+    this.firestore
+    .collection('users')
+    .doc(this.userId)
+    .update(this.user.toJSON())
   }
 
 }
